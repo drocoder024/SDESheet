@@ -1,0 +1,35 @@
+//maintain a prev list to add prev two items
+
+
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        
+        List<List<Integer>>res=new ArrayList<>();
+         List<Integer>prev=null;
+        
+        for(int i=0;i<numRows;i++)
+        {
+            List<Integer>ans=new ArrayList<>();
+           
+            
+            
+            for(int j=0;j<=i;j++)
+            {
+                if(j==0|| j==i)
+                {
+                    ans.add(1);
+                }
+                else
+                {
+                   ans.add(prev.get(j)+prev.get(j-1)); 
+                    
+                }
+            }
+           
+            res.add(ans);
+             prev=ans;
+        }
+        return res;
+        
+    }
+}
